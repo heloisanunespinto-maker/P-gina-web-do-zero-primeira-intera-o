@@ -16,12 +16,27 @@
         }
 
         main {
-            img src="ima"alt="""
             color: darkred;
             text-align: center;
             max-width: 800px;
             margin: 20px auto;
             padding: 16px;
+        }
+
+        /* Estilo para ajustar imagens dentro da tag main */
+        main img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Estilo para a descrição visual da imagem */
+        .descricao-imagem {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #555;
+            margin-top: 8px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -38,6 +53,15 @@
     </header>
 
     <main>
+        <figure>
+            <img src="https://static0.cbrimages.com/wordpress/wp-content/uploads/2022/11/grave-of-the-fireflies-setsuko-sakumashiki-drops.jpg" alt="Ilustração dos irmãos Seita e Setsuko à noite cercados por vagalumes">
+            
+            <!-- Descrição da imagem visível na página -->
+            <figcaption class="descricao-imagem">
+                Setsuko e a lata de doces Sakuma Drops. Fonte: CBR
+            </figcaption>
+        </figure>
+
         <h2>O Túmulo dos Vagalumes - Estúdio Ghibli</h2>
 
         <h2>Meu primeiro post</h2>
