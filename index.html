@@ -38,6 +38,13 @@
             margin-top: 8px;
             margin-bottom: 20px;
         }
+
+        button {
+            cursor: pointer;
+            padding: 8px 16px;
+            font-size: 1rem;
+            margin: 5px;
+        }
     </style>
 </head>
 
@@ -74,12 +81,21 @@
             opiniões e curiosidades do filme
             "O Túmulo dos Vagalumes" - Estúdio Ghibli.
         </p>
-        <button>💗​ <span>0</span></button>
+        <button>💗 <span>0</span></button>
+        <button>🍭 <span>0</span></button>
     </main>
 
+    <script>
+        const botoes = document.querySelectorAll("button");
+        
+        botoes.forEach(function(botao) {
+            botao.addEventListener("click", function() {
+                console.log("fui clicado");
+                let texto = botao.querySelector("span");
+                texto.textContent = Number(texto.textContent) + 1;
+            });
+        });
+    </script>
 </body>
-<script>
-    const button= document.querySelector("button");
-    button
-</script>
+
 </html>
