@@ -8,6 +8,13 @@
     <title>Blog</title>
 
     <style>
+        body {
+            background-color: #fffaf0;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
         header {
             background-color: moccasin;
             color: darkred;
@@ -16,34 +23,96 @@
         }
 
         main {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0;
             color: darkred;
-            text-align: center;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 16px;
         }
 
-        /* Estilo para ajustar imagens dentro da tag main */
-        main img {
-            max-width: 100%;
-            height: auto;
+        .conteudo {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ffe4b5;
+            padding: 30px;
+            border-radius: 12px;
+            background-color: #fffaf0;
+            text-align: left;
+        }
+
+        .conteudo img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
             border-radius: 8px;
+            display: block;
         }
 
-        /* Estilo para a descrição visual da imagem */
         .descricao-imagem {
             font-size: 0.9em;
             font-style: italic;
             color: #555;
             margin-top: 8px;
             margin-bottom: 20px;
+            text-align: center;
         }
 
-        button {
+        /* Estilo dos botões e estados de ativação */
+        .btn-like {
             cursor: pointer;
-            padding: 8px 16px;
+            padding: 10px 20px;
             font-size: 1rem;
-            margin: 5px;
+            margin-top: 15px;
+            margin-right: 8px;
+            border: 1px solid darkred;
+            background-color: #fff;
+            color: darkred;
+            border-radius: 6px;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .btn-like:hover {
+            transform: scale(1.03);
+        }
+
+        /* Quando o botão está ativo (curtido pelo usuário) */
+        .btn-like.curtido {
+            background-color: darkred;
+            color: #fff;
+        }
+
+        /* Quando atinge o limite máximo */
+        .btn-like:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Estilos das mensagens de feedback */
+        .mensagem-status {
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-top: 10px;
+            height: 20px;
+            transition: opacity 0.3s;
+        }
+
+        .mensagem-status.sucesso {
+            color: #2e7d32;
+        }
+
+        .mensagem-status.removido {
+            color: #c62828;
+        }
+
+        .mensagem-limite {
+            font-size: 0.85em;
+            color: red;
+            display: none;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -52,7 +121,6 @@
 
     <header>
         <h1>Meu Blog Tech</h1>
-
         <p>
             Vou compartilhar conhecimentos sobre o filme
             "O Túmulo dos Vagalumes" - Estúdio Ghibli.
@@ -60,39 +128,109 @@
     </header>
 
     <main>
-        <figure>
-            <img src="https://static0.cbrimages.com/wordpress/wp-content/uploads/2022/11/grave-of-the-fireflies-setsuko-sakumashiki-drops.jpg" alt="ilustração de Setsuko e a lata de doces Sakuma Drops">
+        <!-- Conteúdo 1 (Cima) -->
+        <article class="conteudo">
+            <figure>
+                <img src="https://static0.cbrimages.com/wordpress/wp-content/uploads/2022/11/grave-of-the-fireflies-setsuko-sakumashiki-drops.jpg"
+                    alt="ilustração de Setsuko e a lata de doces Sakuma Drops">
+
+                <figcaption class="descricao-imagem">
+                    Setsuko e a lata de doces Sakuma Drops. Fonte: CBR
+                </figcaption>
+            </figure>
+
+            <h2>O Túmulo dos Vagalumes - Estúdio Ghibli</h2>
+            <h2>Meu primeiro post</h2>
+
+            <p>Por: Heloisa Nunes</p>
+
+            <p>
+                Bem-vindos ao meu novo blog!
+                Aqui vou compartilhar informações,
+                opiniões e curiosidades do filme
+                "O Túmulo dos Vagalumes" - Estúdio Ghibli.
+            </p>
+
+            <button class="btn-like">💗 <span>0</span></button>
+            <button class="btn-like">👍​ <span>0</span></button>
             
-            <!-- Descrição da imagem visível na página -->
-            <figcaption class="descricao-imagem">
-                Setsuko e a lata de doces Sakuma Drops. Fonte: CBR
-            </figcaption>
-        </figure>
+            <div class="mensagem-status"></div>
+            <div class="mensagem-limite">Limite de curtidas atingido!</div>
+        </article>
 
-        <h2>O Túmulo dos Vagalumes - Estúdio Ghibli</h2>
+        <!-- Conteúdo 2 (Embaixo) -->
+        <article class="conteudo">
+            <figure>
+                <img src="https://static0.cbrimages.com/wordpress/wp-content/uploads/2022/11/grave-of-the-fireflies-setsuko-sakumashiki-drops.jpg"
+                    alt="ilustração de Setsuko e a lata de doces Sakuma Drops">
 
-        <h2>Meu primeiro post</h2>
+                <figcaption class="descricao-imagem">
+                    Setsuko e a lata de doces Sakuma Drops. Fonte: CBR
+                </figcaption>
+            </figure>
 
-        <p>Por: Heloisa Nunes</p>
+            <h2>O Túmulo dos Vagalumes - Estúdio Ghibli</h2>
+            <h2>Meu segundo post</h2>
 
-        <p>
-            Bem-vindos ao meu novo blog!
-            Aqui vou compartilhar informações,
-            opiniões e curiosidades do filme
-            "O Túmulo dos Vagalumes" - Estúdio Ghibli.
-        </p>
-        <button>💗 <span>0</span></button>
-        <button>🍭 <span>0</span></button>
+            <p>Por: Heloisa Nunes</p>
+
+            <p>
+                Bem-vindos ao meu novo blog!
+                Aqui vou compartilhar informações,
+                opiniões e curiosidades do filme
+                "O Túmulo dos Vagalumes" - Estúdio Ghibli.
+            </p>
+
+            <button class="btn-like">💗 <span>0</span></button>
+            <button class="btn-like">👍​ <span>0</span></button>
+
+            <div class="mensagem-status"></div>
+            <div class="mensagem-limite">Limite de curtidas atingido!</div>
+        </article>
     </main>
 
     <script>
-        const botoes = document.querySelectorAll("button");
-        
-        botoes.forEach(function(botao) {
-            botao.addEventListener("click", function() {
-                console.log("fui clicado");
-                let texto = botao.querySelector("span");
-                texto.textContent = Number(texto.textContent) + 1;
+        const LIMITE_LIKES = 10;
+
+        const botoes = document.querySelectorAll(".btn-like");
+
+        botoes.forEach(function (botao) {
+            botao.addEventListener("click", function () {
+                let artigo = botao.closest(".conteudo");
+                let mensagemStatus = artigo.querySelector(".mensagem-status");
+                let contadorSpan = botao.querySelector("span");
+                let quantidadeAtual = Number(contadorSpan.textContent);
+                let jaCurtido = botao.classList.contains("curtido");
+
+                if (jaCurtido) {
+                    // Tira a curtida
+                    quantidadeAtual--;
+                    botao.classList.remove("curtido");
+
+                    // Mensagem ao remover a curtida
+                    mensagemStatus.textContent = "tirou a curtida!";
+                    mensagemStatus.className = "mensagem-status removido";
+                } else {
+                    // Adiciona a curtida se não tiver atingido o limite
+                    if (quantidadeAtual < LIMITE_LIKES) {
+                        quantidadeAtual++;
+                        botao.classList.add("curtido");
+
+                        // Mensagem ao curtir o post
+                        mensagemStatus.textContent = "curtiu o post!!";
+                        mensagemStatus.className = "mensagem-status sucesso";
+                    }
+                }
+
+                // Atualiza o número exibido
+                contadorSpan.textContent = quantidadeAtual;
+
+                // Verifica se atingiu o limite máximo de curtidas
+                if (quantidadeAtual >= LIMITE_LIKES) {
+                    botao.disabled = true;
+                    let msgLimite = artigo.querySelector(".mensagem-limite");
+                    if (msgLimite) msgLimite.style.display = "block";
+                }
             });
         });
     </script>
