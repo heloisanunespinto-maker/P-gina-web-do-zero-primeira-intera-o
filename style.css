@@ -1,0 +1,106 @@
+body {
+    background-color: #fffaf0;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: moccasin;
+    color: darkred;
+    text-align: center;
+    padding: 20px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0;
+    color: darkred;
+}
+
+.conteudo {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ffe4b5;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: #fffaf0;
+    text-align: left;
+}
+
+.conteudo img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.descricao-imagem {
+    font-size: 0.9em;
+    font-style: italic;
+    color: #555;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilo dos botões e estados de ativação */
+.btn-like {
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 15px;
+    margin-right: 8px;
+    border: 1px solid darkred;
+    background-color: #fff;
+    color: darkred;
+    border-radius: 6px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-like:hover {
+    transform: scale(1.03);
+}
+
+/* Quando o botão está ativo (curtido pelo usuário) */
+.btn-like.curtido {
+    background-color: darkred;
+    color: #fff;
+}
+
+/* Quando atinge o limite máximo */
+.btn-like:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Estilos das mensagens de feedback */
+.mensagem-status {
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-top: 10px;
+    height: 20px;
+    transition: opacity 0.3s;
+}
+
+.mensagem-status.sucesso {
+    color: #2e7d32;
+}
+
+.mensagem-status.removido {
+    color: #c62828;
+}
+
+.mensagem-limite {
+    font-size: 0.85em;
+    color: red;
+    display: none;
+    margin-top: 5px;
+}
