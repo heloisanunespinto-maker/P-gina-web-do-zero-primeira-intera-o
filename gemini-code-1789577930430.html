@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do Cartão de Crédito & Simulador</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --success: #10b981;
+            --danger: #ef4444;
+            --border: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media(min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .box h3 {
+            margin-bottom: 10px;
+        }
+
+        .box.pros h3 { color: var(--success); }
+        .box.cons h3 { color: var(--danger); }
+
+        ul {
+            list-style-position: inside;
+            color: var(--text-muted);
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        .alert-box {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid var(--danger);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Form simulador */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: #0f172a;
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: var(--primary-hover);
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid var(--primary);
+            border-radius: 6px;
+            display: none;
+        }
+
+        .result p {
+            margin-bottom: 8px;
+        }
+
+        .result p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Educação Financeira</h1>
+        <p>Tudo o que você precisa saber sobre Cartão de Crédito</p>
+    </header>
+
+    <!-- O que é -->
+    <section>
+        <h2>O que é um Cartão de Crédito?</h2>
+        <p>O cartão de crédito é um tipo de empréstimo de curto prazo concedido por uma instituição financeira. Ao realizar uma compra, o banco paga o estabelecimento e junta todos os seus gastos em um documento chamado <strong>fatura</strong>.</p>
+        <p>Você tem um limite pré-aprovado para gastar no mês e assume o compromisso de quitar esse valor total até a data de vencimento estipulada.</p>
+    </section>
+
+    <!-- Prós e Contras -->
+    <section>
+        <h2>Prós e Contras</h2>
+        <div class="grid">
+            <div class="box pros">
+                <h3>Vantagens (Prós)</h3>
+                <ul>
+                    <li>Parcelamento de compras de alto valor.</li>
+                    <li>Praticidade e segurança (sem necessidade de dinheiro físico).</li>
+                    <li>Programas de pontos, milhas e cashback.</li>
+                    <li>Prazo para pagamento (até 40 dias dependendo da data da compra).</li>
+                </ul>
+            </div>
+            <div class="box cons">
+                <h3>Desvantagens (Contras)</h3>
+                <ul>
+                    <li>Sensação de "dinheiro infinito" que estimula o consumismo.</li>
+                    <li>Cobrança de juros altíssimos caso a fatura atrase.</li>
+                    <li>Anuidades e taxas ocultas em alguns cartões.</li>
+                    <li>Risco de comprometimento da renda futura.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Riscos de Endividamento -->
+    <section>
+        <h2>Riscos de Endividamento</h2>
+        <div class="alert-box">
+            <p>O maior risco do cartão de crédito é o <strong>rotativo</strong>. Quando você paga apenas o valor mínimo da fatura, o restante do saldo é jogado para o mês seguinte com a incidência de juros que estão entre os mais altos do mercado.</p>
+            <p style="margin-bottom:0;">O acúmulo de parcelas e o uso do limite como extensão do salário são as principais causas de inadimplência entre as famílias.</p>
+        </div>
+    </section>
+
+    <!-- Simulador -->
+    <section>
+        <h2>Simulador de Compra Parcelada</h2>
+        <form id="calcForm">
+            <div class="form-group">
+                <label for="valCompra">Valor da Compra (R$):</label>
+                <input type="number" id="valCompra" step="0.01" placeholder="Ex: 1200" required>
+            </div>
+            <div class="form-group">
+                <label for="numParcelas">Número de Parcelas:</label>
+                <select id="numParcelas">
+                    <option value="1">1x (À vista)</option>
+                    <option value="2">2x sem juros</option>
+                    <option value="3">3x sem juros</option>
+                    <option value="6">6x com juros (2% ao mês)</option>
+                    <option value="12">12x com juros (2.5% ao mês)</option>
+                </select>
+            </div>
+            <button type="button" onclick="calcularSimulacao()">Simular</button>
+        </form>
+
+        <div class="result" id="resultado">
+            <p><strong>Valor da Parcela:</strong> <span id="resParcela">R$ 0,00</span></p>
+            <p><strong>Total da Compra:</strong> <span id="resTotal">R$ 0,00</span></p>
+            <p><strong>Juros Totais:</strong> <span id="resJuros">R$ 0,00</span></p>
+        </div>
+    </section>
+</div>
+
+<script>
+    function calcularSimulacao() {
+        const valor = parseFloat(document.getElementById('valCompra').value);
+        const parcelas = parseInt(document.getElementById('numParcelas').value);
+        const resultDiv = document.getElementById('resultado');
+
+        if (isNaN(valor) || valor <= 0) {
+            alert('Por favor, informe um valor de compra válido.');
+            return;
+        }
+
+        let taxaJuros = 0;
+        if (parcelas === 6) taxaJuros = 0.02;
+        if (parcelas === 12) taxaJuros = 0.025;
+
+        let total = valor;
+        if (taxaJuros > 0) {
+            total = valor * Math.pow((1 + taxaJuros), parcelas);
+        }
+
+        const valorParcela = total / parcelas;
+        const totalJuros = total - valor;
+
+        document.getElementById('resParcela').innerText = valorParcela.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        document.getElementById('resTotal').innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        document.getElementById('resJuros').innerText = totalJuros.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+        resultDiv.style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
